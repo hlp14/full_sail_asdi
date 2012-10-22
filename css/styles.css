@@ -1,0 +1,8 @@
+/*here be dragons.*/
+
+label.error
+{
+    display: block;
+    margin: 5px;
+    color: #FF0000;
+}
