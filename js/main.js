@@ -60,7 +60,6 @@ function searchForCharacter(query)
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
         var jsonObj = JSON.parse(value);
-        console.log(query + " " + jsonObj);
         if (searchForName(query, jsonObj.charName[1]))
         {
             matchedItems.push(jsonObj);
@@ -90,18 +89,18 @@ function createAndDisplayDialog(jsonArray)
     
     for (var i = 0, l = jsonArray.length; i<l; i++)
     {
-        var outerLi = document.createElement("li");
+        var outerLi = $("<li></li>");
         itemList.append(outerLi);
         
-        var innerList = document.createElement("ul");
-        outerLi.appendChild(innerList);
+        var innerList = $("<ul></ul>");
+        outerLi.append(innerList);
         
         var current = jsonArray[i];
         for (var item in current)
         {
-            var innerLi = document.createElement("li");
-            innerList.appendChild(innerLi);
-            innerLi.innerHTML= current[item][0] + " " + current[item][1];
+            var innerLi = $("<li></li>");
+            innerList.append(innerLi);
+            innerLi.html(current[item][0] + " " + current[item][1]);
         }
     }
     $.mobile.changePage("#search-results");
@@ -190,8 +189,9 @@ function createAndDisplayDialog(jsonArray)
                 ecLink.html("Edit Character");
                 ecLink.on("click", editCharacter);
                 ecLink.appendTo(listItem);
-        
-        var ecLink = $('<a class="padLeftRed"></a>');
+                
+
+            ecLink = $('<a class="padLeftRed"></a>');
                 ecLink.attr("href", "#");
                 ecLink.attr("key", key);
                 ecLink.html("Delete Character");
@@ -204,18 +204,34 @@ function createAndDisplayDialog(jsonArray)
         var toDelete = confirm("Do you wish to delete this character?");
         if (toDelete)
         {
-            localStorage.removeItem(this.key);
+            var key = $(this).attr('key');
+            alert("Character was deleted.");
+            localStorage.removeItem(key);
+            $("#display-list").html("");
             $.mobile.changePage("#home");
         }
         else
         {
-            alert("Character was not deleted");
+            alert("Character was not deleted.");
         }
     }
     
     function editCharacter()
     {
-        //did not finish in time
+        var key = $(this).attr("key");
+        var item = JSON.parse(localStorage.getItem(key));
+       
+        $("#dateCreated").val(item.dateCreated[1]);
+        $("#charAge").val(item.charAge[1]);
+        $("#charName").val(item.charName[1]);
+        $("#charGender").val(item.gender[1]);
+        $("#charAttrs").val(item.charAttrs[1]);
+        $("#charSkills").val(item.charSkills[1]);
+        $("#charBio").val(item.charBio[1]);
+        $("#charRating").val(item.charRating[1]);
+        
+        $.mobile.changePage("#add-item");
+        
     }
     
     function clearLocalStorage()
