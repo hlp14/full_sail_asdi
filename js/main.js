@@ -89,7 +89,7 @@ function createAndDisplayDialog(jsonArray)
     
     for (var i = 0, l = jsonArray.length; i<l; i++)
     {
-        var outerLi = $("<li></li>");
+        var outerLi = $('<li class="padBottom"></li>');
         itemList.append(outerLi);
         
         var innerList = $("<ul></ul>");
@@ -160,7 +160,7 @@ function createAndDisplayDialog(jsonArray)
             var outerLi = $("<li></li>");
             outerList.append(outerLi);
             
-            var linkLi = $("<li></li>");
+            var linkLi = $('<li class="padBottom"></li>');
             
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
@@ -183,7 +183,7 @@ function createAndDisplayDialog(jsonArray)
     
     function populateItemLinks(key, listItem)
     {
-        var ecLink = $('<a class="padRightRed"></a>');
+        var ecLink = $('<a class="padRight"></a>');
                 ecLink.attr("href", "#");
                 ecLink.attr("key", key);
                 ecLink.html("Edit Character");
@@ -191,7 +191,7 @@ function createAndDisplayDialog(jsonArray)
                 ecLink.appendTo(listItem);
                 
 
-            ecLink = $('<a class="padLeftRed"></a>');
+            ecLink = $('<a class="padLeft"></a>');
                 ecLink.attr("href", "#");
                 ecLink.attr("key", key);
                 ecLink.html("Delete Character");
