@@ -1,6 +1,13 @@
-$('#add-item').on('pageinit', function(){                
+//init apge events
+
+$("#home").on("pageinit", function(){});
+$("#error404").on("pageinit", function(){});
+$("#search-results").on("pageinit", function(){});
+$("#display-page").on("pageinit", function(){});
+
+$("#add-item").on("pageinit", function(){                
                 setDate();
-                var myForm = $('#addCharForm');
+                var myForm = $("#addCharForm");
 		    myForm.validate({
 			invalidHandler: function(form, validator) {
 			},
@@ -20,18 +27,18 @@ function setDate()
 }
 
 //btn handlers
-$("#search-btn").click(function()
+$("#search-btn").on("click", function()
 {
     var holder = $("#app-search-field").val();
     searchForCharacter(holder);
 });
 
-$("#clearStorageBtn").click(function()
+$("#clearStorageBtn").on("click", function()
 {
     clearLocalStorage();
 });
 
-$("#displayStorageBtn").click(function()
+$("#displayStorageBtn").on("click", function()
 {
     displayData();
 });
@@ -53,7 +60,6 @@ function searchForCharacter(query)
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
         var jsonObj = JSON.parse(value);
-        console.log(query + " " + jsonObj);
         if (searchForName(query, jsonObj.charName[1]))
         {
             matchedItems.push(jsonObj);
@@ -83,18 +89,18 @@ function createAndDisplayDialog(jsonArray)
     
     for (var i = 0, l = jsonArray.length; i<l; i++)
     {
-        var outerLi = document.createElement("li");
+        var outerLi = $('<li class="padBottom"></li>');
         itemList.append(outerLi);
         
-        var innerList = document.createElement("ul");
-        outerLi.appendChild(innerList);
+        var innerList = $("<ul></ul>");
+        outerLi.append(innerList);
         
         var current = jsonArray[i];
         for (var item in current)
         {
-            var innerLi = document.createElement("li");
-            innerList.appendChild(innerLi);
-            innerLi.innerHTML= current[item][0] + " " + current[item][1];
+            var innerLi = $("<li></li>");
+            innerList.append(innerLi);
+            innerLi.html(current[item][0] + " " + current[item][1]);
         }
     }
     $.mobile.changePage("#search-results");
@@ -151,25 +157,25 @@ function createAndDisplayDialog(jsonArray)
         
         for (var i = 0, l = localStorage.length; i < l; i++)
         {
-            var outerLi = document.createElement("li");
+            var outerLi = $("<li></li>");
             outerList.append(outerLi);
             
-            var linkLi = document.createElement("li");
+            var linkLi = $('<li class="padBottom"></li>');
             
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             
-            var innerList = document.createElement("ul");
-            outerLi.appendChild(innerList);
+            var innerList = $("<ul></ul>");
+            outerLi.append(innerList);
             
             var jsonObj = JSON.parse(value);
             
             for (var item in jsonObj)
             {
-                var innerLi = document.createElement("li");
-                innerList.appendChild(innerLi);
-                innerLi.innerHTML= jsonObj[item][0] + " " + jsonObj[item][1];
-                innerList.appendChild(linkLi);
+                var innerLi = $("<li></li>");
+                innerList.append(innerLi);
+                innerLi.html(jsonObj[item][0] + " " + jsonObj[item][1]);
+                innerList.append(linkLi);
             }
             populateItemLinks(key, linkLi); 
         }
@@ -177,19 +183,20 @@ function createAndDisplayDialog(jsonArray)
     
     function populateItemLinks(key, listItem)
     {
-        var editCharacterLink = document.createElement("a");
-        editCharacterLink.href="#"
-        editCharacterLink.key = key;
-        editCharacterLink.innerHTML = "Edit Character";
-        editCharacterLink.addEventListener("click", editCharacter)
-        listItem.appendChild(editCharacterLink);
-        
-        var deleteCharacterLink = document.createElement("a");
-        deleteCharacterLink.href="#"
-        deleteCharacterLink.key = key;
-        deleteCharacterLink.innerHTML = "Delete Character";
-        deleteCharacterLink.addEventListener("click", deleteCharacter)
-        listItem.appendChild(deleteCharacterLink);
+        var ecLink = $('<a class="padRight"></a>');
+                ecLink.attr("href", "#");
+                ecLink.attr("key", key);
+                ecLink.html("Edit Character");
+                ecLink.on("click", editCharacter);
+                ecLink.appendTo(listItem);
+                
+
+            ecLink = $('<a class="padLeft"></a>');
+                ecLink.attr("href", "#");
+                ecLink.attr("key", key);
+                ecLink.html("Delete Character");
+                ecLink.on("click", deleteCharacter);
+                ecLink.appendTo(listItem);
     };
     
     function deleteCharacter()
@@ -197,18 +204,34 @@ function createAndDisplayDialog(jsonArray)
         var toDelete = confirm("Do you wish to delete this character?");
         if (toDelete)
         {
-            localStorage.removeItem(this.key);
+            var key = $(this).attr('key');
+            alert("Character was deleted.");
+            localStorage.removeItem(key);
+            $("#display-list").html("");
             $.mobile.changePage("#home");
         }
         else
         {
-            alert("Character was not deleted");
+            alert("Character was not deleted.");
         }
     }
     
     function editCharacter()
     {
-        //did not finish in time
+        var key = $(this).attr("key");
+        var item = JSON.parse(localStorage.getItem(key));
+       
+        $("#dateCreated").val(item.dateCreated[1]);
+        $("#charAge").val(item.charAge[1]);
+        $("#charName").val(item.charName[1]);
+        $("#charGender").val(item.gender[1]);
+        $("#charAttrs").val(item.charAttrs[1]);
+        $("#charSkills").val(item.charSkills[1]);
+        $("#charBio").val(item.charBio[1]);
+        $("#charRating").val(item.charRating[1]);
+        
+        $.mobile.changePage("#add-item");
+        
     }
     
     function clearLocalStorage()

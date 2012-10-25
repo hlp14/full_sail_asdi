@@ -10,6 +10,7 @@ var defaultJson =
     "character1":
     {
         "dateCreated": ["Date Created:", "6/7/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Bob"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -22,6 +23,7 @@ var defaultJson =
     "character2":
     {
         "dateCreated": ["Date Created:", "3/4/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Sophia"],
         "gender": ["Gender:", "Female"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -33,6 +35,7 @@ var defaultJson =
     "character3":
     {
         "dateCreated": ["Date Created:", "12/5/11"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Kal-El"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -44,6 +47,7 @@ var defaultJson =
         "character4":
     {
         "dateCreated": ["Date Created:", "12/4/11"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Grogmir"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -55,6 +59,7 @@ var defaultJson =
         "character5":
     {
         "dateCreated": ["Date Created:", "1/2/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Fredrick"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -65,7 +70,8 @@ var defaultJson =
     },
        "character6":
     {
-        "dateCreated": ["Date Created:", "NA"],
+        "dateCreated": ["Date Created:", "1/2/33"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Li'eria"],
         "gender": ["Gender:", "Female"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -78,6 +84,7 @@ var defaultJson =
     "character7":
     {
         "dateCreated": ["Date Created:", "6/8/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Sha'ira"],
         "gender": ["Gender:", "Female"],
          "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -89,6 +96,7 @@ var defaultJson =
     "character8":
     {
         "dateCreated": ["Date Created:", "6/20/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Bobbin"],
         "gender": ["Gender:", "Male"],
       "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -100,6 +108,7 @@ var defaultJson =
         "character9":
     {
         "dateCreated": ["Date Created:", "4/18/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Silpferia"],
         "gender": ["Gender:", "Female"],
          "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -111,6 +120,7 @@ var defaultJson =
         "character10":
     {
         "dateCreated": ["Date Created:", "6/12/11"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Merlinus"],
         "gender": ["Gender:", "Male"],
          "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -122,6 +132,7 @@ var defaultJson =
         "character11":
     {
         "dateCreated": ["Date Created:", "7/21/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Tobby"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -134,6 +145,7 @@ var defaultJson =
     "character12":
     {
         "dateCreated": ["Date Created:", "1/4/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Sandra"],
         "gender": ["Gender:", "Female"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -145,6 +157,7 @@ var defaultJson =
     "character13":
     {
         "dateCreated": ["Date Created:", "5/7/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Legatus"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -156,6 +169,7 @@ var defaultJson =
         "character14":
     {
         "dateCreated": ["Date Created:", "5/3/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Kira"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -167,6 +181,7 @@ var defaultJson =
         "character15":
     {
         "dateCreated": ["Date Created:", "7/8/11"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Erika"],
         "gender": ["Gender:", "Female"],
        "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -178,6 +193,7 @@ var defaultJson =
     "character16":
     {
         "dateCreated": ["Date Created:", "4/7/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Gregor"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -190,6 +206,7 @@ var defaultJson =
         "character17":
     {
         "dateCreated": ["Date Created:", "3/3/12"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Elric"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -201,6 +218,7 @@ var defaultJson =
         "character18":
     {
         "dateCreated": ["Date Created:", "NA"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Bob"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -212,6 +230,7 @@ var defaultJson =
         "character19":
     {
         "dateCreated": ["Date Created:", "NA"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Bob"],
         "gender": ["Gender:", "Male"],
         "charAttrs": ["Character Attributes:", "Default Attributes"],
@@ -223,6 +242,7 @@ var defaultJson =
         "character20":
     {
         "dateCreated": ["Date Created:", "NA"],
+        "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Bob"],
         "gender": ["Gender:", "Male"],
 
