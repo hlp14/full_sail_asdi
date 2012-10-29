@@ -1,3 +1,8 @@
+//week 2 stuff; to be removed for week 3.
+$("p2JBtn").on("click", function(){});
+$("p2XBtn").on("click", function(){});
+$("p2CBtn").on("click", function(){});
+
 //init apge events
 
 $("#home").on("pageinit", function(){});
@@ -224,6 +229,7 @@ function createAndDisplayDialog(jsonArray)
         $("#dateCreated").val(item.dateCreated[1]);
         $("#charAge").val(item.charAge[1]);
         $("#charName").val(item.charName[1]);
+        //TODO: The line below is dangerous as is, idiot-proof it.
         $("#charGender").val(item.gender[1]);
         $("#charAttrs").val(item.charAttrs[1]);
         $("#charSkills").val(item.charSkills[1]);
