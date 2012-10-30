@@ -1,7 +1,57 @@
 //week 2 stuff; to be removed for week 3.
-$("p2JBtn").on("click", function(){});
-$("p2XBtn").on("click", function(){});
-$("p2CBtn").on("click", function(){});
+var p2Label = $("#p2Label");
+var p2Output = $("#p2Results");
+
+$("#p2JBtn").on("click", changeToJSON);
+$("#p2XBtn").on("click", changeToXML);
+$("#p2CBtn").on("click", changeToCSV);
+
+function changeToJSON()
+{
+    p2Label.html("Current format is JSON.");
+    $.ajax(
+    {
+        type:"GET",
+        url:"data/data.json",
+        dataType: "json",
+        success: parseJData
+    }
+    );
+    
+    function parseJData(data)
+    {
+        p2Output.html("");
+        $.each(data,
+        function(index, element)
+        {
+            //this is MUCH more brute force than I like, but it works.
+            var li = $("<li></li>");
+            li.appendTo(p2Output);
+            
+            var p = $("<p></p>");
+            p.html(element.dateCreated[0] + " " + element.dateCreated[1] + "<br>"
+                   + element.charAge[0] + " " + element.charAge[1] + "<br>"
+                   + element.charName[0] + " " + element.charName[1] + "<br>"
+                   + element.gender[0] + " " + element.gender[1] + "<br>"
+                   + element.charAttrs[0] + " " + element.charAttrs[1] +"<br>"
+                   + element.charSkills[0] + " " + element.charSkills[1] + "<br>"
+                   + element.charBio[0] + " " + element.charBio[1] + "<br>"
+                   + element.charRating[0] + " " + element.charRating[1]);
+            p.appendTo(li);
+        }
+        ); 
+    }
+}
+
+function changeToXML()
+{
+    p2Label.html("Current format is XML.");
+}
+
+function changeToCSV()
+{
+    p2Label.html("Current format is CSV.");
+}
 
 //init apge events
 

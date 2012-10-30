@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <characters>
+        <character6>
+		<dateCreated>1/2/33</dateCreated>
+		<charAge>20</charAge>
+		<charName>Li'eria</charName>
+		<gender>Female</gender>
+		<charAttrs>Default Attributes</charAttrs>
+		<charSkills>Default Skills</charSkills>
+		<charBio>Null</charBio>
+		<charRating>100</charRating>
+	</character6>
+	<character7>
+		<dateCreated>6/8/12</dateCreated>
+		<charAge>20</charAge>
+		<charName>Sha'ira</charName>
+		<gender>Female</gender>
+		<charAttrs>Default Attributes</charAttrs>
+		<charSkills>Default Skills</charSkills>
+		<charBio>Null</charBio>
+		<charRating>100</charRating>
+	</character7>
+	<character8>
+		<dateCreated>6/20/12</dateCreated>
+		<charAge>20</charAge>
+		<charName>Bobbin</charName>
+		<gender>Male</gender>
+		<charAttrs>Default Attributes</charAttrs>
+		<charSkills>Default Skills</charSkills>
+		<charBio>Null</charBio>
+		<charRating>100</charRating>
+	</character8>
+	<character9>
+		<dateCreated>4/18/12</dateCreated>
+		<charAge>20</charAge>
+		<charName>Silpferia</charName>
+		<gender>Female</gender>
+		<charAttrs>Default Attributes</charAttrs>
+		<charSkills>Default Skills</charSkills>
+		<charBio>Null</charBio>
+		<charRating>100</charRating>
+	</character9>
+	<character10>
+		<dateCreated>6/12/11</dateCreated>
+		<charAge>20</charAge>
+		<charName>Merlinus</charName>
+		<gender>Male</gender>
+		<charAttrs>Default Attributes</charAttrs>
+		<charSkills>Default Skills</charSkills>
+		<charBio>Null</charBio>
+		<charRating>100</charRating>
+	</character10>
+    </characters>
