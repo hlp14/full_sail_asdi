@@ -1,3 +1,142 @@
+//week 2 stuff; to be removed for week 3.
+var p2Label = $("#p2Label");
+var p2Output = $("#p2Results");
+
+$("#p2JBtn").on("click", changeToJSON);
+$("#p2XBtn").on("click", changeToXML);
+$("#p2CBtn").on("click", changeToCSV);
+
+function changeToJSON()
+{
+    p2Label.html("Current format is JSON.");
+    $.ajax(
+        {
+            type:"GET",
+            url:"data/data.json",
+            dataType: "json",
+            success: parseJData
+        }
+    );
+    
+    function parseJData(data)
+    {
+        console.log("Raw JSON input from data/data.json:");
+        console.log(data);
+        
+        p2Output.html("");
+        $.each(data,
+        function(index, element)
+        {
+            //this is MUCH more brute force than I like, but it works.
+            var li = $("<li></li>");
+            li.appendTo(p2Output);
+            
+            var p = $("<p></p>");
+            p.html(element.dateCreated[0] + " " + element.dateCreated[1] + "<br>"
+                   + element.charAge[0] + " " + element.charAge[1] + "<br>"
+                   + element.charName[0] + " " + element.charName[1] + "<br>"
+                   + element.gender[0] + " " + element.gender[1] + "<br>"
+                   + element.charAttrs[0] + " " + element.charAttrs[1] +"<br>"
+                   + element.charSkills[0] + " " + element.charSkills[1] + "<br>"
+                   + element.charBio[0] + " " + element.charBio[1] + "<br>"
+                   + element.charRating[0] + " " + element.charRating[1]);
+            p.appendTo(li);
+        }
+        ); 
+    }
+}
+
+function changeToXML()
+{
+    p2Label.html("Current format is XML.");
+    $.ajax(
+        {
+            type:"GET",
+            url:"data/data.xml",
+            dataType:"xml",
+            success: parseXData
+        }
+    );
+    
+    function parseXData(data)
+    {
+        console.log("Raw XML input from data/data.xml:");
+        console.log(data);
+        
+        p2Output.html("");
+        
+        $(data).find("character").each(
+            function()
+            {
+                //this is probably brutally inefficient, but it works.
+                var li = $("<li></li>");
+                li.appendTo(p2Output);
+                
+                var p = $("<p></p>");
+                p.appendTo(li);
+                
+                var cur = $(this);
+                p.append("Date Created: " + findString("dateCreated")
+                         + "Character Age: " + findString("charAge")
+                         + "Character Name: " + findString("charName")
+                         + "Gender: " + findString("gender")
+                         + "Character Attributes: " + findString("charAttrs")
+                         + "Character Skills: " + findString("charSkills")
+                         + "Character Biography: " + findString("charBio")
+                         + "Character Rating: " + findString("charRating")
+                        );
+                
+
+                function findString(string)
+                {
+                    return cur.find(string).text() + "<br>";
+                }
+            }
+        );
+    }
+}
+
+function changeToCSV()
+{
+    p2Label.html("Current format is CSV.");
+    $.ajax(
+        {
+            type:"GET",
+            url:"data/data.csv",
+            dataType:"text",
+            success: parseCData
+        }
+    );
+    
+    function parseCData(data)
+    {
+        console.log("Raw CSV input from data/data.csv:");
+        console.log(data);
+        
+        p2Output.html("");
+        
+        //found a third party lib to help with getting CSV to more JS-friendly arrays.
+        var chars = $.csv.toArrays(data);
+        
+        //chars[0] is the CVS header, which we don't want to print.
+        for (var outer = 1; outer < chars.length; outer++)
+        {
+            var li = $("<li></li>");
+            li.appendTo(p2Output);
+            
+            var p = $("<p></p>");
+            p.appendTo(li);
+            
+            for (var inner = 0; inner < chars[0].length; inner++)
+            {
+                p.append(chars[0][inner] + ": " + chars[outer][inner]);
+                p.append("<br>")
+            }
+        }
+    }
+}
+
+
 //init apge events
 
 $("#home").on("pageinit", function(){});
@@ -224,6 +363,7 @@ function createAndDisplayDialog(jsonArray)
         $("#dateCreated").val(item.dateCreated[1]);
         $("#charAge").val(item.charAge[1]);
         $("#charName").val(item.charName[1]);
+        //TODO: The line below is dangerous as is, idiot-proof it.
         $("#charGender").val(item.gender[1]);
         $("#charAttrs").val(item.charAttrs[1]);
         $("#charSkills").val(item.charSkills[1]);

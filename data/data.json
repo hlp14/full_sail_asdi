@@ -1,0 +1,63 @@
+{
+    "character1":
+    {
+        "dateCreated": ["Date Created:", "6/7/12"],
+        "charAge": ["Character Age:", "20"],
+        "charName": ["Character Name:", "Bob"],
+        "gender": ["Gender:", "Male"],
+        "charAttrs": ["Character Attributes:", "Default Attributes"],
+        "charSkills": ["Character Skills:", "Default Skills"],
+        
+        "charBio": ["Character Bio:", "Null"],
+        "charRating": ["Character Rating:", "100"]
+    },
+    
+    "character2":
+    {
+        "dateCreated": ["Date Created:", "3/4/12"],
+        "charAge": ["Character Age:", "20"],
+        "charName": ["Character Name:", "Sophia"],
+        "gender": ["Gender:", "Female"],
+        "charAttrs": ["Character Attributes:", "Default Attributes"],
+        "charSkills": ["Character Skills:", "Default Skills"],
+        
+        "charBio": ["Character Bio:", "Null"],
+        "charRating": ["Character Rating:", "100"]
+    },
+    "character3":
+    {
+        "dateCreated": ["Date Created:", "12/5/11"],
+        "charAge": ["Character Age:", "20"],
+        "charName": ["Character Name:", "Kal-El"],
+        "gender": ["Gender:", "Male"],
+        "charAttrs": ["Character Attributes:", "Default Attributes"],
+        "charSkills": ["Character Skills:", "Default Skills"],
+        
+        "charBio": ["Character Bio:", "Null"],
+        "charRating": ["Character Rating:", "100"]
+    },
+    "character4":
+    {
+        "dateCreated": ["Date Created:", "12/4/11"],
+        "charAge": ["Character Age:", "20"],
+        "charName": ["Character Name:", "Grogmir"],
+        "gender": ["Gender:", "Male"],
+        "charAttrs": ["Character Attributes:", "Default Attributes"],
+        "charSkills": ["Character Skills:", "Default Skills"],
+        
+        "charBio": ["Character Bio:", "Null"],
+        "charRating": ["Character Rating:", "100"]
+    },
+    "character5":
+    {
+        "dateCreated": ["Date Created:", "1/2/12"],
+        "charAge": ["Character Age:", "20"],
+        "charName": ["Character Name:", "Fredrick"],
+        "gender": ["Gender:", "Male"],
+        "charAttrs": ["Character Attributes:", "Default Attributes"],
+        "charSkills": ["Character Skills:", "Default Skills"],
+        
+        "charBio": ["Character Bio:", "Null"],
+        "charRating": ["Character Rating:", "100"]
+    }
+}

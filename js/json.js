@@ -99,7 +99,7 @@ var defaultJson =
         "charAge": ["Character Age:", "20"],
         "charName": ["Character Name", "Bobbin"],
         "gender": ["Gender:", "Male"],
-      "charAttrs": ["Character Attributes:", "Default Attributes"],
+        "charAttrs": ["Character Attributes:", "Default Attributes"],
         "charSkills": ["Character Skills:", "Default Skills"],
         
         "charBio": ["Character Bio:", "Null"],
@@ -129,7 +129,7 @@ var defaultJson =
         "charBio": ["Character Bio:", "Null"],
         "charRating": ["Character Rating:", "100"],
     },
-        "character11":
+    "character11":
     {
         "dateCreated": ["Date Created:", "7/21/12"],
         "charAge": ["Character Age:", "20"],
