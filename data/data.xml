@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <characters>
-        <character6>
+        <character>
 		<dateCreated>1/2/33</dateCreated>
 		<charAge>20</charAge>
 		<charName>Li'eria</charName>
@@ -9,8 +9,8 @@
 		<charSkills>Default Skills</charSkills>
 		<charBio>Null</charBio>
 		<charRating>100</charRating>
-	</character6>
-	<character7>
+	</character>
+	<character>
 		<dateCreated>6/8/12</dateCreated>
 		<charAge>20</charAge>
 		<charName>Sha'ira</charName>
@@ -19,8 +19,8 @@
 		<charSkills>Default Skills</charSkills>
 		<charBio>Null</charBio>
 		<charRating>100</charRating>
-	</character7>
-	<character8>
+	</character>
+	<character>
 		<dateCreated>6/20/12</dateCreated>
 		<charAge>20</charAge>
 		<charName>Bobbin</charName>
@@ -29,8 +29,8 @@
 		<charSkills>Default Skills</charSkills>
 		<charBio>Null</charBio>
 		<charRating>100</charRating>
-	</character8>
-	<character9>
+	</character>
+	<character>
 		<dateCreated>4/18/12</dateCreated>
 		<charAge>20</charAge>
 		<charName>Silpferia</charName>
@@ -39,8 +39,8 @@
 		<charSkills>Default Skills</charSkills>
 		<charBio>Null</charBio>
 		<charRating>100</charRating>
-	</character9>
-	<character10>
+	</character>
+	<character>
 		<dateCreated>6/12/11</dateCreated>
 		<charAge>20</charAge>
 		<charName>Merlinus</charName>
@@ -49,5 +49,5 @@
 		<charSkills>Default Skills</charSkills>
 		<charBio>Null</charBio>
 		<charRating>100</charRating>
-	</character10>
+	</character>
     </characters>
