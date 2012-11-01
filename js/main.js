@@ -363,8 +363,14 @@ function createAndDisplayDialog(jsonArray)
         $("#dateCreated").val(item.dateCreated[1]);
         $("#charAge").val(item.charAge[1]);
         $("#charName").val(item.charName[1]);
-        //TODO: The line below is dangerous as is, idiot-proof it.
-        $("#charGender").val(item.gender[1]);
+        if (item.gender[1] == "Male")
+        {
+            $("#radioMale").attr("checked", true);
+        }
+        else
+        {
+            $("#radioFemale").attr("checked", true);
+        }
         $("#charAttrs").val(item.charAttrs[1]);
         $("#charSkills").val(item.charSkills[1]);
         $("#charBio").val(item.charBio[1]);
