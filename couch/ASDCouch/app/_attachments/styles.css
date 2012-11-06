@@ -1,0 +1,21 @@
+/*here be dragons.*/
+
+label.error
+{
+    display: block;
+    margin: 5px;
+    color: #FF0000;
+}
+
+.padBottom
+{
+    padding-bottom: 5px;
+}
+.padRight
+{
+    padding-right: 5px;
+}
+.padLeft
+{
+    padding-right: 5px;
+}
