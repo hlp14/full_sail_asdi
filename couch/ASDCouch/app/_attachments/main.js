@@ -3,7 +3,8 @@
 $("#home").on("pageinit", function(){});
 $("#error404").on("pageinit", function(){});
 $("#search-results").on("pageinit", function(){});
-$("#display-page").on("pageinit", function(){});
+
+$("#display-page").on("pageinit", displayAllData);
 
 $("#add-item").on("pageinit", function(){                
                 setDate();
@@ -145,59 +146,41 @@ function createAndDisplayDialog(jsonArray)
         $.mobile.changePage("#home");
     }
     
-    function displayData()
+    function displayAllData()
     {
-        if (localStorage.length === 0)
-        {
-            alert("No data stored. Dummy data will be inserted.");
-            insertDummyData();
-        }
+        $.ajax(
+        		{
+                    type:"GET",
+                    url:"https://tarkenfire.cloudant.com/asdproject/_design/rpgtracker/_view/characters",
+                    dataType: "json",
+                    success: parseData
+                }
+            );
         
-        var outerList = $("#display-list");
-        
-        for (var i = 0, l = localStorage.length; i < l; i++)
+        function parseData(res)
         {
-            var outerLi = $("<li></li>");
-            outerList.append(outerLi);
-            
-            var linkLi = $('<li class="padBottom"></li>');
-            
-            var key = localStorage.key(i);
-            var value = localStorage.getItem(key);
-            
-            var innerList = $("<ul></ul>");
-            outerLi.append(innerList);
-            
-            var jsonObj = JSON.parse(value);
-            
-            for (var item in jsonObj)
-            {
-                var innerLi = $("<li></li>");
-                innerList.append(innerLi);
-                innerLi.html(jsonObj[item][0] + " " + jsonObj[item][1]);
-                innerList.append(linkLi);
-            }
-            populateItemLinks(key, linkLi); 
+        	//I imagine this is sledgehammer-in-face inefficient with a larger data set.
+        	var displayList = $("#display-list");
+        	$.each(res.rows, function(index, item)
+        		{
+        			var li = $("<li></li>");
+        			li.html('<a href="#">' +
+        						'<h3>'+ item.value.charName[1] + '</h3>' +
+        						'<p>' + item.value.charAge[0] + " " + item.value.charAge[1] + '</p>' +
+        						'<p>' + item.value.gender[0] + " " + item.value.gender[1] + '</p>' +
+        						'<p>' + item.value.charAttrs[0] + " " + item.value.charAttrs[1] + '</p>' +
+        						'<p>' + item.value.charSkills[0] + " " + item.value.charSkills[1] + '</p>' +
+        						'<p>' + item.value.charBio[0] + " " + item.value.charBio[1] + '</p>' +
+        						'<p>' + item.value.charRating[0] + " " + item.value.charRating[1] + '</p>' +
+        						'<h3 class="ui-li-aside">Created: ' + item.value.dateCreated[1] + '</h3>' +
+        					'</a>');
+        			li.appendTo(displayList);
+        			
+        			displayList.listview('refresh');
+        		}
+        	);
         }
     }
-    
-    function populateItemLinks(key, listItem)
-    {
-        var ecLink = $('<a class="padRight"></a>');
-                ecLink.attr("href", "#");
-                ecLink.attr("key", key);
-                ecLink.html("Edit Character");
-                ecLink.on("click", editCharacter);
-                ecLink.appendTo(listItem);
-                
-
-            ecLink = $('<a class="padLeft"></a>');
-                ecLink.attr("href", "#");
-                ecLink.attr("key", key);
-                ecLink.html("Delete Character");
-                ecLink.on("click", deleteCharacter);
-                ecLink.appendTo(listItem);
-    };
     
     function deleteCharacter()
     {

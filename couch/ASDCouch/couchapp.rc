@@ -1,7 +1,10 @@
 {
   "env": {
-    "local": {
+   "local": {
       "db": "http://127.0.0.1:5984/asd"
+    },
+    "cloudant": {
+      "db": "http://ndstanywhateryoughtseven:RY140nxyg0VmNw6bcLWstrKg@tarkenfire.cloudant.com/asdproject"
     }
   }
 }

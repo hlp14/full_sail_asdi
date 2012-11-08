@@ -111,25 +111,23 @@
 	<!--display page -->
 	<div data-role="page" id="display-page" data-theme="a" data-add-back-btn="true" >
 	    <div data-role="header">
-                <h1>View Characters</h1>
-            </div>
-            <div data-role="content">
-		<img src="logo.png" alt="RPG Tracker">
-		<input type="button" id="displayStorageBtn" value="Display Data" data-theme="b">
-                <input type="button" id="clearStorageBtn" value="Clear All Data" data-theme="c">
-		
-                <ul id="display-list">
+	        <h1>View Characters</h1>
+        </div>
+        <div data-role="content">
+			
+	        <ul id="display-list" class="padTop" data-role="listview">
                     
+            </ul>
+		</div>
+            
+        <div data-role="footer" data-id="nav-footer">		
+			<div data-role="navbar">
+            	<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="http://tarkenfire.github.com/full_sail_asdi/index.html">Gh-Pages</a></li>
                 </ul>
-            </div>
-            <div data-role="footer" data-id="nav-footer">		
-		<div data-role="navbar">
-                    <ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="http://tarkenfire.github.com/full_sail_asdi/index.html">Gh-Pages</a></li>
-                    </ul>
                 </div>	
-            </div>
+        </div>
 	</div>
 	
 		<!--Add char form-->
@@ -138,7 +136,7 @@
 	    
 	    <div data-role="header">
                 <h1>Add New Character</h1>
-            </div>
+        </div>
 		<div data-role="content">
 		    <img src="logo.png" alt="RPG Tracker">
 		    <form action="" id="addCharForm">
