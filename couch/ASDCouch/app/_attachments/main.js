@@ -4,7 +4,7 @@ $("#home").on("pageinit", function(){});
 $("#error404").on("pageinit", function(){});
 $("#search-results").on("pageinit", function(){});
 
-$("#display-page").on("pageinit", displayAllData);
+$("#display-page").on("pageinit", displayDataList);
 
 $("#add-item").on("pageinit", function(){                
                 setDate();
@@ -13,7 +13,7 @@ $("#add-item").on("pageinit", function(){
 			invalidHandler: function(form, validator) {
 			},
 			submitHandler: function() {
-                        var data = myForm.serializeArray();
+            var data = myForm.serializeArray();
 			storeData(data);
 		}
 	});
@@ -30,19 +30,72 @@ function setDate()
 //btn handlers
 $("#search-btn").on("click", function()
 {
-    var holder = $("#app-search-field").val();
-    searchForCharacter(holder);
+    //var holder = $("#app-search-field").val();
+    //searchForCharacter(holder);
 });
 
-$("#clearStorageBtn").on("click", function()
-{
-    clearLocalStorage();
-});
 
-$("#displayStorageBtn").on("click", function()
+
+//p4 functions
+function displayDataList()
 {
-    displayData();
-});
+	var db = $.couch.db("asdproject");
+	var displayList = $("#display-list");
+	
+	db.allDocs(
+			{
+				success: function(data)
+				{
+					$.each(data.rows, function(index, item)
+							{
+								if(item.key.substring(0,5) === "char:")
+								{
+									db.openDoc(item.key, {
+										success: function(item)
+										{
+											var li = $("<li></li>");
+						        			li.html('<a href="#">' +
+						        						'<h3>'+ item.charName[1] + '</h3>' +
+						        						'<h3 class="ui-li-aside">Created: ' + item.dateCreated[1] + '</h3>' +
+						        					'</a>');
+						        			li.appendTo(displayList);
+						        			displayList.listview('refresh');
+										}});
+								}
+							}
+					);
+				} 
+			});
+}
+
+function storeData(data)
+{
+	var itemToStore = {};
+	var db = $.couch.db("asdproject");
+    
+	itemToStore._id = "char:" + getRandomInt(10000, 50000); 
+    itemToStore.dateCreated = ["DateCreated", data[0].value];
+    itemToStore.charAge = ["Character Age:", data[1].value];
+    itemToStore.charName = ["Character Name:", data[2].value];
+    itemToStore.charGender = ["Character Gender:", data[3].value];
+    itemToStore.charAtts = ["Character Attributes:", data[4].value];
+    itemToStore.charSkills = ["Character Skills:", data[5].value];
+    itemToStore.charBio = ["Character Bio:", data[6].value];
+    itemToStore.charRating = ["Character Bio:", data[7].value];	
+
+    db.saveDoc(itemToStore);
+    alert("Character Stored.");
+    $.mobile.changePage("#display-page");
+}
+
+function getRandomInt(min, max)
+{
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+//extra functionality
+
 
 //search logic
 //Only search by name for now, but leaving in this form so other fields can be searched.
@@ -117,7 +170,7 @@ function createAndDisplayDialog(jsonArray)
         }      
     }
     
-    function storeData(data, key)
+    function storeDataOld(data)
     {
         var id;
         if(!key)
